@@ -11,3 +11,97 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* home page */
+
+.home .grid div {
+  margin-top: 20px;
+  background-size: cover, contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.home .grid .wrapper {
+  overflow: hidden;
+  opacity: .5;
+}
+
+.home .grid .wrapper h5 {
+  position: relative;
+  top: -50px;
+  display: inline-block;
+  padding: 2px 10px;
+}
+
+.home .grid div.a {
+  background-image: url('./assets/services/books.png');
+}
+
+.home .grid div.b {
+  background-image: url('./assets/services/children.png');
+}
+
+.home .grid div.c {
+  background-image: url('./assets/services/colors.png');
+}
+
+.home .grid div.d {
+  background-image: url('./assets/services/monkeys.png');
+}
+
+.home .grid div.e {
+  background-image: url(./assets/services/public.png);
+}
+
+.home .grid div.f {
+  background-image: url('./assets/services/schoolstuff.png');
+}
+
+.home .grid div.g {
+  background-image: url('./assets/services/storybooks.png');
+}
+
+.home .grid div.h {
+  background-image: url('./assets/services/studying.png');
+}
+
+.home .grid div .spacer {
+  margin: 50% 0%;
+}
+
+.home .grid div button {
+  bottom: -40px;
+}
+
+/* home page animations */
+
+.home .grid .wrapper:hover {
+  opacity: 1;
+}
+
+.home .grid .wrapper:hover > h5 {
+  animation: slide1 1s forwards;
+}
+
+.home .grid .wrapper:hover > button {
+  animation: slide2 1s forwards;
+  cursor: pointer;
+}
+
+@keyframes slide1 {
+  from {
+    top: -50px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+@keyframes slide2 {
+  from {
+    bottom: -40px;
+  }
+  to {
+    bottom: 10px;
+  }
+}
