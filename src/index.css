@@ -92,6 +92,15 @@ code {
   cursor: pointer;
 }
 
+@media all and (max-width: 992px) {
+  .home .grid .wrapper h5 {
+    top: 0px;
+  }
+  .home .grid div button {
+    bottom: 10px;
+  }
+}
+
 @keyframes slide1 {
   from {
     top: -50px;
@@ -184,9 +193,8 @@ code {
 
 /* footer */
 
-footer{
+.footer{
   position: fixed;
   width: 100%;
   bottom: 0%;
-  padding-top: 20px;
 }
