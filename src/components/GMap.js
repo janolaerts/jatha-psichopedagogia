@@ -1,31 +1,47 @@
 import React, { Component } from 'react'
-import GoogleMap from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
 
 const Map = () => <div></div>
 
 class GMap extends Component {
 
-  renderMarkers = (map, maps) => {
-    new maps.Marker({
+  renderComponents = (map, maps) => {
+    const marker = new maps.Marker({
       position: { lat: -12.080049, lng: -77.098030 },
       map: map,
-      title: 'Something'
+      title: 'Something',
+      clickable: true
     });
-
+    const infoWindow = new maps.InfoWindow({
+      zoom: 4,
+      center: { lat: -12.080049, lng: -77.098030 }
+    });
   }
+
+  showPopUp = () => {
+    console.log('infoWindow should pop up');
+  } 
 
   render() {
     return (
-      <div style={{ height: '50vw', width: '100%' }}>
-        <GoogleMap
-          bootstrapURLKeys={{ key: 'AIzaSyDHWTOrEr_ujqRINudoj-UqAvt029005F8' }}
-          defaultCenter={{ lat: -12.080049, lng: -77.098030 }}
-          defaultZoom={16}
-          onGoogleApiLoaded={({map, maps}) => this.renderMarkers(map, maps)}
-          yesIWantToUseGoogleMapApiInternals={true}
-        >
-          <Map lat={-12.080049} lng={-77.098030} />
-        </GoogleMap>
+      <div className="container">
+        <div className="row">
+          <div className="col s12 l6">
+            <div style={{ height: '400px', width: '100%' }}>
+              <GoogleMapReact
+              bootstrapURLKeys={{ key: 'AIzaSyDHWTOrEr_ujqRINudoj-UqAvt029005F8' }}
+              defaultCenter={{ lat: -12.080049, lng: -77.098030 }}
+              defaultZoom={15}
+              options={{ streetViewControl: true }}
+              onGoogleApiLoaded={({map, maps}) => this.renderComponents(map, maps)}
+              yesIWantToUseGoogleMapApiInternals={true}
+              onChildClick={() => this.showPopUp()}
+              >
+              <Map lat={-12.080049} lng={-77.098030} />
+              </GoogleMapReact>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

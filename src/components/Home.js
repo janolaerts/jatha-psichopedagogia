@@ -69,9 +69,6 @@ class Home extends Component {
             }) }
           </div>
         </div>
-        <div className="footer-copyright blue">
-          <div className="container center-align white-text">&copy; Jatha Psicología</div>
-        </div>
       </div>
     );
   }
