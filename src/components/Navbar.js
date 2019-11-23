@@ -15,7 +15,7 @@ class Navbar extends Component {
       <div className="navbar-fixed">
         <nav className="nav-wrapper blue darken-1">
           <div className="container">
-            <Link to="/" className="brand-logo center hide-on-small-only">Jatha Psicopedagogía</Link>
+            <Link to="/" className="brand-logo center hide-on-small-only">Jatha</Link>
             <Link to="#" className="sidenav-trigger" data-target="mobile-links">
               <i className="material-icons">menu</i>
             </Link>
@@ -25,7 +25,7 @@ class Navbar extends Component {
               <li><NavLink to="/contact">Contact</NavLink></li>
               <li><NavLink to="/store">Store</NavLink></li>
             </ul>
-            <Link to="/" className="brand-logo center hide-on-med-and-up"></Link>
+            <Link to="/" className="brand-logo center hide-on-med-and-up">Jatha</Link>
             <ul className="sidenav" id="mobile-links">
               <li><NavLink to="/">Home</NavLink></li>
               <li><NavLink to="/about">About us</NavLink></li>

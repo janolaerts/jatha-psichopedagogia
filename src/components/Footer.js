@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="page-footer">
+    <footer className="page-footer blue">
       <div className="footer-copyright blue">
         <div className="container center-align white-text">&copy; Jatha Psicología</div>
       </div>
