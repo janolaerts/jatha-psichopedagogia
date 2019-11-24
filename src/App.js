@@ -6,6 +6,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Store from './components/Store';
 import Footer from './components/Footer';
+import ProductContextProvider from './components/ProductContext';
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
-        <Route exact path="/Store" component={Store} />
+        <ProductContextProvider>
+          <Route exact path="/Store" component={Store} />
+        </ProductContextProvider>
         <Footer />
       </div>
     </BrowserRouter>
