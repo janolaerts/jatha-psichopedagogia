@@ -133,11 +133,12 @@ code {
 
 .contact h1 {
   text-decoration: underline;
+  margin: 25px 0px;
 }
 
 .contact .message-container {
-  margin-top: 70px;
   overflow: hidden;
+  margin-bottom: 25px;
 }
 
 .contact form .name {
@@ -218,6 +219,29 @@ code {
 
 /* store */
 
+.store {
+  padding-bottom: 30px;
+}
+
+.store .cart-button {
+  position: fixed;
+  top: 75px;
+  left: 10px;
+}
+
+.store .cart-text {
+  width: 100px;
+  position: absolute;
+  top: 75px;
+  left: 60px;
+  border-radius: 10px;
+  display: none;
+}
+
+.store .cart-button:hover ~ .cart-text {
+  display: block;
+}
+
 .store .card .card-image:hover {
   cursor: pointer;
 }
@@ -228,6 +252,16 @@ code {
 
 .store .card .card-image:hover .halfway-fab {
   animation: pop .5s forwards;
+}
+
+/* ProductDetails */
+
+.product-details {
+  padding-bottom: 50px;
+}
+
+.product-details h1 {
+  margin: 25px 0px 50px 0px;
 }
 
 /* footer */
