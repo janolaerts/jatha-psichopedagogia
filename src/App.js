@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import Store from './components/store/Store';
 import Footer from './components/Footer';
 import ProductContextProvider from './components/store/ProductContext';
+import ProductDetails from './components/store/ProductDetails';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/contact" component={Contact} />
         <ProductContextProvider>
           <Route exact path="/Store" component={Store} />
+          <Route exact path="/details" component={ProductDetails} />
         </ProductContextProvider>
         <Footer />
       </div>

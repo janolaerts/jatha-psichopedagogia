@@ -56,7 +56,7 @@ class Home extends Component {
                       <div className="modal" id="services">
                         <div className="modal-content">
                           <h2 className="center blue-text">{ this.state.title }</h2>
-                          <img className="responsive-img" src={ this.state.picture } />
+                          <img className="responsive-img" src={ this.state.picture } alt={item.title} />
                           <p className="blue-text" style={{ textAlign: 'justify' }}>{ this.state.content }</p>
                         </div>
                         <div className="modal-footer">

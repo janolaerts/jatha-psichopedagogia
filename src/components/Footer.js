@@ -12,10 +12,10 @@ const Footer = () => {
             </div>
             <div className="img-wrapper center-align">
             <div className="col s4">
-              <a target="_blank" href="https://www.facebook.com/pg/Jatha-Psicopedagog%C3%ADa-449136569204054/photos/?ref=page_internal"><img style={{ width: '30px', position: 'relative', top: '10px', cursor: 'pointer' }} src={facebook} alt="facebook"/></a>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/pg/Jatha-Psicopedagog%C3%ADa-449136569204054/photos/?ref=page_internal"><img style={{ width: '30px', position: 'relative', top: '10px', cursor: 'pointer' }} src={facebook} alt="facebook"/></a>
             </div>
             <div className="col s4">
-              <a target="_blank" href="https://www.instagram.com/jathapsicopedagogia/"><img style={{ width: '30px', position: 'relative', top: '10px', cursor: 'pointer' }} src={instagram} alt="instagram"/></a>
+              <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/jathapsicopedagogia/"><img style={{ width: '30px', position: 'relative', top: '10px', cursor: 'pointer' }} src={instagram} alt="instagram"/></a>
             </div>
             </div>
           </div>

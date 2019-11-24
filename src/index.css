@@ -216,10 +216,25 @@ code {
   }
 }
 
+/* store */
+
+.store .card .card-image:hover {
+  cursor: pointer;
+}
+
+.store .card .halfway-fab {
+  transform: scale(0);
+}
+
+.store .card .card-image:hover .halfway-fab {
+  animation: pop .5s forwards;
+}
+
 /* footer */
 
 .footer{
   position: fixed;
   width: 100%;
   bottom: 0%;
+  z-index: 1000;
 }
