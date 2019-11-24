@@ -101,6 +101,12 @@ code {
   }
 }
 
+@media all and (max-width: 500px) {
+  .home .grid .modal h2 {
+    font-size: 35px;
+  }
+}
+
 @keyframes slide1 {
   from {
     top: -50px;
@@ -160,6 +166,16 @@ code {
   width: 40vw;
 }
 
+.contact .map-container .gm-style-iw {
+  width: 350px;
+  overflow: visible;
+}
+
+.contact .map-container .gm-style-iw form .input-field input {
+  width: 300px;
+}
+
+
 @media all and (max-width: 992px) {
   .contact .message-container {
     margin-top: 0px;
@@ -167,6 +183,15 @@ code {
 
   .contact .map-container {
     width: 82.5vw;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .contact h1 {
+    font-size: 45px;
+  }
+  .contact .map-container {
+    margin-bottom: 60px;
   }
 }
 

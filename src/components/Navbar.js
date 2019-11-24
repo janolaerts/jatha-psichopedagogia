@@ -32,11 +32,11 @@ class Navbar extends Component {
           </nav>
         </div>
         <ul className="sidenav blue" id="mobile-links">
-          <img style={{ width: '300px' }} src={ Logo } alt="logo"/>
           <li><NavLink className="sidenav-close white-text" to="/">Home</NavLink></li>
           <li><NavLink className="sidenav-close white-text" to="/about">About us</NavLink></li>
           <li><NavLink className="sidenav-close white-text" to="/contact">Contact</NavLink></li>
           <li><NavLink className="sidenav-close white-text" to="/store">Store</NavLink></li>
+          <img style={{ width: '300px' }} src={ Logo } alt="logo"/>
         </ul>
       </React.Fragment>
     );
