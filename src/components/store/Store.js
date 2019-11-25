@@ -1,41 +1,50 @@
 import React, { useContext } from 'react'
 import { ProductContext } from './ProductContext'
 import { Link } from 'react-router-dom'
+import M from "materialize-css/dist/js/materialize.min.js";
+import "materialize-css/dist/css/materialize.min.css";
 
 const Store = () => {
 
-  const { products } = useContext(ProductContext);
+  const { products, setDetails } = useContext(ProductContext);
 
   return(
     <div className="store container">
+      <div id="toast-container"></div>
       <div className="row">
-        { products.map(item => {
+        { products.map((item, index) => {
           return (
             <div className="col s12 m6 l3" key={item.id}>
               <div className="card">
                 <div className="card-image">
                   <Link to="/details">
-                    <img src={item.img} alt={item.alt} product={item} />
+                    <img src={item.img} alt={item.alt} onClick={() => setDetails({...item})} />
                   </Link>
-                  <a href="#" className="halfway-fab btn-floating blue">
+                  <a href="#" onClick={() => {
+                    setDetails({...item})
+                    M.toast({html: `Añadiste ${products[index].name} al carrito!`, classes: 'blue'});
+                  }} className="halfway-fab btn-floating blue modal-trigger">
                     <i className="material-icons">add_shopping_cart</i>
                   </a>
                 </div>
                 <div className="card-content">
-                  <span className="left">{item.name}</span>
+                  <p className="left">{item.name}</p>
                   <p className="right">{item.price}$</p>
                 </div>
                 <div className="card-action center">
                   <Link to="/details">
-                    <button className="btn blue">Más info</button>
+                    <button onClick={() => setDetails({...item})} className="btn blue">Más info</button>
                   </Link>
-                  
                 </div>
               </div>
             </div>
           )  
         }) }
       </div>
+      <a href="/cart" className="btn-floating blue cart-button">
+        <i className="material-icons">shopping_cart</i>
+      </a>
+      <p className="blue white-text center cart-text">Ir a carrito</p>
     </div>
   );
 }

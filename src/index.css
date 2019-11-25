@@ -254,6 +254,26 @@ code {
   animation: pop .5s forwards;
 }
 
+#toast-container {
+  min-width: 10%;
+  bottom: 2% !important;
+  right: 50% !important;
+  transform: translateX(50%) translateY(85%);
+}
+
+@media all and (max-width: 1050px) {
+  .store .card .halfway-fab {
+    transform: scale(1);
+    animation: none ! important;
+  }
+}
+
+@media all and (max-width: 500px) {
+  #toast-container {
+    bottom: 20% !important;
+  }
+}
+
 /* ProductDetails */
 
 .product-details {
