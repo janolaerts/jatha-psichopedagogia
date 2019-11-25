@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
-import { ProductContext } from './ProductContext'
+import { StoreContext } from './StoreContext'
 import { Link } from 'react-router-dom'
+import M from "materialize-css/dist/js/materialize.min.js";
+import "materialize-css/dist/css/materialize.min.css";
 
 const ProductDetails = (props) => {
 
-  const { details } = useContext(ProductContext);
+  const { details, addToCart } = useContext(StoreContext);
 
   return (
     <div className="container product-details">
@@ -27,16 +29,20 @@ const ProductDetails = (props) => {
           </Link>
         </div>
         <div className="s6 right">
-          <button className="btn blue">
+          <button className="btn blue" onClick={() => {
+            addToCart(details);
+            M.toast({html: `Añadiste ${details.name} al carrito!`, classes: 'blue'});
+          }}>
             <span>Carrito</span>
             <i className="material-icons left">add_shopping_cart</i>
           </button>
         </div>
       </div>
-      
+      <Link to="/cart" className="btn-floating blue cart-button">
+        <i className="material-icons">shopping_cart</i>
+      </Link>
+      <p className="blue white-text center cart-text">Ir a carrito</p>
     </div>
-    
-
   );
 }
 

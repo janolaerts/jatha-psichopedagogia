@@ -6,8 +6,9 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Store from './components/store/Store';
 import Footer from './components/Footer';
-import ProductContextProvider from './components/store/ProductContext';
+import StoreContextProvider from './components/store/StoreContext';
 import ProductDetails from './components/store/ProductDetails';
+import Cart from './components/store/Cart';
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
-        <ProductContextProvider>
-          <Route exact path="/Store" component={Store} />
+        <StoreContextProvider>
+          <Route exact path="/store" component={Store} />
           <Route exact path="/details" component={ProductDetails} />
-        </ProductContextProvider>
+          <Route exact path="/cart" component={Cart} />
+        </StoreContextProvider>
         <Footer />
       </div>
     </BrowserRouter>

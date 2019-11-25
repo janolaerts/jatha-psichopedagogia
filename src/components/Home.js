@@ -46,6 +46,16 @@ class Home extends Component {
     return (
       <div className="home">
         <div className="container">
+          <div className="modal" id="services">
+            <div className="modal-content">
+              <h2 className="center blue-text">{ this.state.title }</h2>
+              <img className="responsive-img" src={ this.state.picture } alt={this.state.title} />
+              <p className="blue-text" style={{ textAlign: 'justify' }}>{ this.state.content }</p>
+            </div>
+            <div className="modal-footer">
+              <button className="btn btn-center modal-close blue">Cerrar</button>
+            </div>
+          </div>
           <div className="row grid">
             { this.state.services.map(item => {
               return (
@@ -53,16 +63,6 @@ class Home extends Component {
                     <div className={`wrapper ${ item.id }`}>
                       <h5 className="blue white-text">{ item.title }</h5>
                       <div className="spacer"></div>
-                      <div className="modal" id="services">
-                        <div className="modal-content">
-                          <h2 className="center blue-text">{ this.state.title }</h2>
-                          <img className="responsive-img" src={ this.state.picture } alt={item.title} />
-                          <p className="blue-text" style={{ textAlign: 'justify' }}>{ this.state.content }</p>
-                        </div>
-                        <div className="modal-footer">
-                          <button className="btn btn-center modal-close blue">Cerrar</button>
-                        </div>
-                      </div>
                       <button href="#services" className="btn btn-small waves-effect waves-light blue modal-trigger" onClick={() => this.changeContent(item)}>
                         <span>Leer más</span>
                         <i className="material-icons left">add</i>

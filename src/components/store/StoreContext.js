@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react';
 
-export const ProductContext = createContext();
+export const StoreContext = createContext();
 
-const ProductContextProvider = (props) => {
+const StoreContextProvider = (props) => {
   const [products] = useState([
     { name: 'Auto', price: 10, img: 'products/car.png', info: '¡Rum-rum! Con este Set de 13 piezas los peques de la casa podrán dar vida a sus propios karts de rally. Con un uniforme de carrera especial, la figura del conductor podrá realizar giros, piruetas y carreras extraordinarias. Es el juego perfecto para estimular el desarrollo de la mente en 3 dimensiones y la creatividad de forma divertida. ¡Las posibilidades de crear son infinitas! Edad: A partir de 3 años. Características: - Incluye 13 piezas - Incluye accesorios de radiocontrol - Formas: cuadrados, triángulos y rectángulos. - Las piezas son magnéticas y siempre se atraen, nunca se repelen. - Fabricadas en plástico ABS e imán de neodimio. - Compatible con los demás sets de Magformers. - Pilas AAA no incluidas Dimensiones: 16cm (Alto) x 14cm (Ancho) x 14cm (Largo)', alt: 'car', id: 1 },
     { name: 'Avion', price: 15, img: 'products/airplane.png', info: '¿A qué altura puede llegar esta avioneta turquesa? Los peques se lo pasarán genial haciendo volar esta veloz y furiosa avioneta clásica de hélice. ¡Animales a compartir contigo sus aventuras de vuelo! Edad: A partir de 12 mesos. Características: - Materiales de madera: Schima. - Materiales de plástico: PP y PE. Dimensiones: Avioneta: 8,1cm (Alto) x 15,1cm (Ancho) x 12,4cm (Largo) Packaging: 18cm (Alto) x 12cm (Ancho) x 12cm (Largo)', alt: 'airplane', id: 2 },
@@ -15,12 +15,19 @@ const ProductContextProvider = (props) => {
   ])
 
   const [details, setDetails] = useState({});
+  const [added, setAdded] = useState([]);
+
+  const addToCart = (item) => {
+    setAdded([...added, item]);
+  }
+
+  console.log(added);
 
   return(
-    <ProductContext.Provider value={{products, details, setDetails}}>
+    <StoreContext.Provider value={{products, details, setDetails, added, setAdded, addToCart}}>
       { props.children }
-    </ProductContext.Provider> 
+    </StoreContext.Provider> 
   );
 }
 
-export default ProductContextProvider
+export default StoreContextProvider

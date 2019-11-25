@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
-import { ProductContext } from './ProductContext'
+import { StoreContext } from './StoreContext'
 import { Link } from 'react-router-dom'
 import M from "materialize-css/dist/js/materialize.min.js";
 import "materialize-css/dist/css/materialize.min.css";
 
 const Store = () => {
 
-  const { products, setDetails } = useContext(ProductContext);
+  const { products, setDetails, addToCart } = useContext(StoreContext);
 
   return(
     <div className="store container">
@@ -20,12 +20,12 @@ const Store = () => {
                   <Link to="/details">
                     <img src={item.img} alt={item.alt} onClick={() => setDetails({...item})} />
                   </Link>
-                  <a href="#" onClick={() => {
-                    setDetails({...item})
+                  <button onClick={() => {
+                    addToCart(item);
                     M.toast({html: `Añadiste ${products[index].name} al carrito!`, classes: 'blue'});
                   }} className="halfway-fab btn-floating blue modal-trigger">
                     <i className="material-icons">add_shopping_cart</i>
-                  </a>
+                  </button>
                 </div>
                 <div className="card-content">
                   <p className="left">{item.name}</p>
@@ -41,9 +41,9 @@ const Store = () => {
           )  
         }) }
       </div>
-      <a href="/cart" className="btn-floating blue cart-button">
+      <Link to="/cart" className="btn-floating blue cart-button">
         <i className="material-icons">shopping_cart</i>
-      </a>
+      </Link>
       <p className="blue white-text center cart-text">Ir a carrito</p>
     </div>
   );
