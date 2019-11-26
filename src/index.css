@@ -313,8 +313,20 @@ code {
 
 /* cart */
 
+.cart .cart-item {
+  margin-top: 10px;
+  border-bottom: 2px solid #2196f3;
+}
+
 .cart .remove, .cart .add {
   margin-top: 25px;
+}
+
+@media all and (max-width: 600px) {
+  .cart {
+    position: relative;
+    padding-bottom: 40px;
+  }
 }
 
 /* footer */

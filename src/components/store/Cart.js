@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import uuid from 'uuid/v1'
+import { Link } from 'react-router-dom'
 import { StoreContext } from './StoreContext'
 import CartItem from './CartItem'
 
@@ -26,6 +27,22 @@ const Cart = () => {
       <div className="row" style={{ marginTop: '10px', borderBottom: '2px solid #2196f3' }}>
         <div className="col s12 m6 blue white-text center"><h4>Precio total:</h4></div>
         <div className="col s12 m6 blue white-text center"><h4>s./{ total }</h4></div>
+      </div>
+      <div className="row">
+        <div className="col s12">
+          <Link to="/store">
+            <button className="btn blue left">
+              <span>Tienda</span>
+              <i className="material-icons left">keyboard_arrow_left</i>
+            </button>
+          </Link>
+          <Link to="/checkout">
+            <button className="btn blue right">
+              <span>Checkout</span>
+              <i className="material-icons left">credit_card</i>
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

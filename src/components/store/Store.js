@@ -20,7 +20,7 @@ const Store = () => {
                   <Link to="/details">
                     <img src={item.img} alt={item.alt} onClick={() => setDetails({...item})} />
                   </Link>
-                  <button onClick={() => {
+                  <button onClick={(e) => {
                     addToCart(item);
                     M.toast({html: `Añadiste ${products[index].name} al carrito!`, classes: 'blue'});
                   }} className="halfway-fab btn-floating blue">
