@@ -23,13 +23,13 @@ const Store = () => {
                   <button onClick={() => {
                     addToCart(item);
                     M.toast({html: `Añadiste ${products[index].name} al carrito!`, classes: 'blue'});
-                  }} className="halfway-fab btn-floating blue modal-trigger">
+                  }} className="halfway-fab btn-floating blue">
                     <i className="material-icons">add_shopping_cart</i>
                   </button>
                 </div>
                 <div className="card-content">
                   <p className="left">{item.name}</p>
-                  <p className="right">{item.price}$</p>
+                  <p className="right">s./{item.price}</p>
                 </div>
                 <div className="card-action center">
                   <Link to="/details">

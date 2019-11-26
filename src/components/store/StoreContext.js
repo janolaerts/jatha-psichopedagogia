@@ -16,15 +16,16 @@ const StoreContextProvider = (props) => {
 
   const [details, setDetails] = useState({});
   const [added, setAdded] = useState([]);
+  const [itemToIncrement, setItemToIncrement] = useState({});
+  let [amount, setAmount] = useState(0);
+  console.log(itemToIncrement);
 
   const addToCart = (item) => {
     setAdded([...added, item]);
   }
 
-  console.log(added);
-
   return(
-    <StoreContext.Provider value={{products, details, setDetails, added, setAdded, addToCart}}>
+    <StoreContext.Provider value={{products, details, setDetails, added, setAdded, addToCart, itemToIncrement, setItemToIncrement, amount, setAmount}}>
       { props.children }
     </StoreContext.Provider> 
   );

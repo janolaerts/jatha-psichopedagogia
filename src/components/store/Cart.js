@@ -1,36 +1,32 @@
 import React, { useContext } from 'react'
-import { StoreContext } from './StoreContext'
 import uuid from 'uuid/v1'
+import { StoreContext } from './StoreContext'
+import CartItem from './CartItem'
 
 const Cart = () => {
 
   const { added } = useContext(StoreContext);
-  console.log(added);
 
-  let total;
-
+  let total = 0;
   const calculateTotal = () => {
     added.forEach(item => {
-      return total = total + item.price;
+      total = total + item.price;
     })
   }
-
-  console.log(total);
+  calculateTotal();
  
   return (
     <div className="container cart">
-      <h1 className="blue-text center" style={{ textDecoration: 'underline', margin: '0' }}>Cart</h1>
+      <h1 className="blue-text center" style={{ textDecoration: 'underline', margin: '0' }}>Carrito</h1>
       { added.map(item => {
         return (
-          <div className="row" style={{ marginTop: '10px', borderBottom: '2px solid #2196f3' }} key={uuid()} >
-            <div className="col s12 m3 center blue-text"><h4>{ item.name }</h4></div>
-            <div className="col s12 m3 center blue-text"><h4 className="blue-text">-</h4></div>
-            <div className="col s12 m3 center blue-text"><h4 className="blue-text">+</h4></div>
-            <div className="col s12 m3 center blue-text"><h4 className="blue-text">{ item.price }</h4></div>
-          </div>
+          <CartItem item={item} key={uuid()} />
         )
       }) }
-
+      <div className="row" style={{ marginTop: '10px', borderBottom: '2px solid #2196f3' }}>
+        <div className="col s12 m6 blue white-text center"><h4>Precio total:</h4></div>
+        <div className="col s12 m6 blue white-text center"><h4>s./{ total }</h4></div>
+      </div>
     </div>
   );
 }
