@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import uuid from 'uuid/v1'
 import { Link } from 'react-router-dom'
 import { StoreContext } from './StoreContext'
@@ -6,12 +6,15 @@ import CartItem from './CartItem'
 
 const Cart = () => {
 
-  const { added } = useContext(StoreContext);
+  let { added } = useContext(StoreContext);
+  const { setCheckoutTotal } = useContext(StoreContext);
+  added = [...new Set(added)];
 
   let total = 0;
   const calculateTotal = () => {
     added.forEach(item => {
       total = total + item.price;
+      setCheckoutTotal(total);
     })
   }
   calculateTotal();

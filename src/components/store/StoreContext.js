@@ -16,8 +16,8 @@ const StoreContextProvider = (props) => {
 
   const [details, setDetails] = useState({});
   const [added, setAdded] = useState([]);
-  const [selected, setSelected] = useState({});
   let [amount, setAmount] = useState(0);
+  const [checkoutTotal, setCheckoutTotal] = useState(0);
 
   const addToCart = (item) => {
     setAdded([...added, item]);
@@ -38,7 +38,7 @@ const StoreContextProvider = (props) => {
   }
 
   return(
-    <StoreContext.Provider value={{products, details, setDetails, added, setAdded, addToCart, selected, setSelected, amount, setAmount, increment, decrement}}>
+    <StoreContext.Provider value={{products, details, setDetails, added, setAdded, addToCart, amount, setAmount, increment, decrement, checkoutTotal, setCheckoutTotal}}>
       { props.children }
     </StoreContext.Provider> 
   );

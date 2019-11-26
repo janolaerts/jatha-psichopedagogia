@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import StoreContextProvider from './components/store/StoreContext';
 import ProductDetails from './components/store/ProductDetails';
 import Cart from './components/store/Cart';
+import Checkout from './components/store/Checkout';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/store" component={Store} />
           <Route exact path="/details" component={ProductDetails} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/checkout" component={Checkout} />
         </StoreContextProvider>
         <Footer />
       </div>

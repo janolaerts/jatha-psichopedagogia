@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { StoreContext } from './StoreContext'
-import { genericTypeAnnotation } from '@babel/types';
 
 const CartItem = (props) => {
 
