@@ -213,22 +213,14 @@ code {
   }
 }
 
-@keyframes pop {
-  0% {
-    transform: scale(0);
-  }
-  90% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 /* store */
 
 .store {
   padding-bottom: 30px;
+}
+
+.store .card {
+  overflow: hidden;
 }
 
 .store .cart-button {
@@ -252,6 +244,7 @@ code {
 
 .store .card .card-image:hover {
   cursor: pointer;
+  animation: grow 1.5s forwards;
 }
 
 .store .card .halfway-fab {
@@ -279,6 +272,27 @@ code {
 @media all and (max-width: 600px) {
   #toast-container {
     bottom: 20% !important;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
   }
 }
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-//import GMap from './GMap';
+import emailjs from 'emailjs-com';
+import M from "materialize-css/dist/js/materialize.min.js";
+import "materialize-css/dist/css/materialize.min.css";
 
 export class GMap extends Component {
 
@@ -36,21 +38,35 @@ export class GMap extends Component {
   }
 
   handleChange = (e) => {
-    e.preventDefault();
     this.setState({
       [e.target.id]: e.target.value
-    });
+    })
   }
-
+  
   handleSubmit = (e) => {
     e.preventDefault();
-    e.target.name.value = '';
-    e.target.email.value = '';
-    e.target.message.value = '';
+
+    console.log(this.state.name, this.state.email, this.state.message);
+
+    if(this.state.name && this.state.email && this.state.message) {
+      emailjs.send('gmail', 'email', { "user_name": this.state.name, "user_email": this.state.email, "message": `${this.state.message}. Este mensaje es de ${this.state.name} con email: ${this.state.email}` }, 'user_7JHuVTK3qMLcYImW8gFxu')
+      .then(response => {
+          console.log(response.status, response.text);
+          M.toast({html: `Muchas gracias, le responderemos pronto!`, classes: 'green'});
+        })
+      .catch(error => {
+        console.log(error);
+        M.toast({html: 'Hubo un error al enviar el correo!', classes: 'red'});
+      })
+    }
+
+    e.target.name.value = null;
+    e.target.email.value = null;
+    e.target.message.value = null;
     this.setState({
-      name: '',
-      email: '',
-      message: ''
+      name: null,
+      email: null,
+      message: null
     });
   }
 
@@ -64,20 +80,20 @@ export class GMap extends Component {
               <form className="center" onSubmit={this.handleSubmit}>
                 <div className="input-field name">
                   <i className="material-icons prefix">person</i>
-                  <input onChange={this.handleChange} type="text" id="name" />
+                  <input onChange={this.handleChange} type="text" id="name" name="user_name" />
                   <label className="blue-text" htmlFor="name">Su nombre</label>
                 </div>
                 <div className="input-field email">
                   <i className="material-icons prefix">email</i>
-                  <input onChange={this.handleChange} type="email" id="email" />
+                  <input onChange={this.handleChange} type="email" id="email" name="user_email" />
                   <label className="blue-text" htmlFor="email">Su correo</label>
                 </div>
                 <div className="input-field message">
                   <i className="material-icons prefix">message</i>
-                  <textarea onChange={this.handleChange} className="materialize-textarea" type="email" id="message" />
+                  <textarea onChange={this.handleChange} className="materialize-textarea" type="email" id="message" name="message" />
                   <label className="blue-text" htmlFor="message">Su mensaje</label>
                 </div>
-                <button className="btn blue">Enviar mensaje</button>
+                <button className="btn blue" value="Send" type="submit">Enviar mensaje</button>
               </form>
             </div>
           </div>

@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import uuid from 'uuid/v1'
 import { Link } from 'react-router-dom'
 import { StoreContext } from './StoreContext'
 import CartItem from './CartItem'
+import M from "materialize-css/dist/js/materialize.min.js";
+import "materialize-css/dist/css/materialize.min.css";
 
 const Cart = () => {
 
@@ -18,6 +20,11 @@ const Cart = () => {
     })
   }
   calculateTotal();
+
+  useEffect(() => {
+    const element = document.querySelector('.tooltipped');
+    M.Tooltip.init(element);
+  })
  
   return (
     <div className="container cart">
@@ -39,12 +46,10 @@ const Cart = () => {
               <i className="material-icons left">keyboard_arrow_left</i>
             </button>
           </Link>
-          <Link to="/checkout">
-            <button className="btn blue right">
-              <span>Checkout</span>
-              <i className="material-icons left">credit_card</i>
-            </button>
-          </Link>
+          <button data-tooltip="Todavía no podemos procesar pagos" data-position="left" className="btn blue right tooltipped">
+            <span>Pagar</span>
+            <i className="material-icons left">credit_card</i>
+          </button>
         </div>
       </div>
     </div>

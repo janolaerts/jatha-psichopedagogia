@@ -1,5 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { StoreContext } from './StoreContext';
+import M from "materialize-css/dist/js/materialize.min.js";
+import "materialize-css/dist/css/materialize.min.css";
+//import StripeCheckout from 'react-stripe-checkout'
 
 const Checkout = () => {
 
@@ -16,20 +19,26 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.Mercadopago.setPublishableKey("TEST-d7042778-5d86-4492-88af-8d15d78d7479");
+    console.log(name, email, cardNumber, securityCode, expirationMonth, expirationYear, docType, docNumber);
 
     setName('');
     setEmail('');
     setCardNumber('');
     setSecurityCode('');
     setExpirationMonth('');
+    setExpirationYear('');
     setDocType('');
     setDocNumber('');
   }
+
+  useEffect(() => {
+    let select = document.querySelectorAll('select');
+    M.FormSelect.init(select);
+  })
   
   return (
     <div className="container checkout">
-      <h1 className="blue-text center" style={{ textDecoration: 'underline', margin: '0' }}>Checkout para s./{ checkoutTotal }</h1>
+      <h1 className="blue-text center" style={{ textDecoration: 'underline', margin: '0' }}>A pagar: s./{ checkoutTotal }</h1>
         <form className="center" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col s12">
@@ -76,9 +85,10 @@ const Checkout = () => {
             </div>
             <div className="col s12 m6">
               <div className="input-field docType">
-                <i className="material-icons prefix blue-text">portrait</i>
-                <input value={docType} onChange={(e) => setDocType(e.target.value)} type="text" id="docType" data-checkout="docType" />
-                <label className="blue-text" htmlFor="docType">Tipo de documento</label>
+                <i className="material-icons prefix blue-text">format_list_numbered</i>
+                <select value={docType} className="icons" onChange={(e) => setDocType(e.target.value)} type="text" id="docType" data-checkout="docType">
+                  <option>Something</option>
+                </select>
               </div>
             </div>
             <div className="col s12 m6">
