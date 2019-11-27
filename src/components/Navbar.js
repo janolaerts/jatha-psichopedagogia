@@ -22,20 +22,20 @@ class Navbar extends Component {
                 <i className="material-icons">menu</i>
               </Link>
               <ul className="right hide-on-med-and-down">
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/about">About us</NavLink></li>
-                <li><NavLink to="/contact">Contact</NavLink></li>
-                <li><NavLink to="/store">Store</NavLink></li>
+                <li><NavLink to="/">Inicio</NavLink></li>
+                <li><NavLink to="/about">Nosotros</NavLink></li>
+                <li><NavLink to="/contact">Contacto</NavLink></li>
+                <li><NavLink to="/store">Tienda</NavLink></li>
               </ul>
               <Link to="/" className="brand-logo center hide-on-med-and-up">Jatha</Link>
             </div>
           </nav>
         </div>
         <ul className="sidenav blue" id="mobile-links">
-          <li><NavLink className="sidenav-close white-text" to="/">Home</NavLink></li>
-          <li><NavLink className="sidenav-close white-text" to="/about">About us</NavLink></li>
-          <li><NavLink className="sidenav-close white-text" to="/contact">Contact</NavLink></li>
-          <li><NavLink className="sidenav-close white-text" to="/store">Store</NavLink></li>
+          <li><NavLink className="sidenav-close white-text" to="/">Inicio</NavLink></li>
+          <li><NavLink className="sidenav-close white-text" to="/about">Nosotros</NavLink></li>
+          <li><NavLink className="sidenav-close white-text" to="/contact">Contacto</NavLink></li>
+          <li><NavLink className="sidenav-close white-text" to="/store">Tienda</NavLink></li>
           <img style={{ width: '300px' }} src={ Logo } alt="logo"/>
         </ul>
       </React.Fragment>
