@@ -110,7 +110,7 @@ export class GMap extends Component {
                     </div>
                     <div className="input-field">
                       <i className="material-icons prefix blue-text">contact_phone</i>
-                      <input disabled placeholder="983 839 989" type="text" />
+                      <input disabled placeholder="983 840 923" type="text" />
                     </div>
                     <div className="input-field mail">
                       <i className="material-icons prefix blue-text">mail</i>
